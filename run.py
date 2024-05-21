@@ -55,7 +55,7 @@ def run():
         if label.strip() == id.split('_')[0].strip():
             correct += 1
     print('Acc:'+str(correct/len(img_list)))
-    with open('22920212204054.txt','wb') as f:
+    with open('22920212204054.txt','w') as f:
         for item in hw:
             f.write(item+'\n')
     print('Having written into 22920212204054.txt.')
