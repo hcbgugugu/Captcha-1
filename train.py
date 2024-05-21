@@ -13,7 +13,7 @@ batch_size = 64
 base_lr = 0.001
 max_epoch = 50
 model_path = './checkpoints/modeltest.pth'
-restor = False
+
 
 if not os.path.exists('./checkpoints'):
     os.mkdir('./checkpoints')
@@ -49,7 +49,7 @@ def train():
     cnn = CNN()
     if torch.cuda.is_available():
         cnn.cuda()
-    if restor:
+    if os.path.exists(model_path):
         cnn.load_state_dict(torch.load(model_path))
     #        freezing_layers = list(cnn.named_parameters())[:10]
     #        for param in freezing_layers:
