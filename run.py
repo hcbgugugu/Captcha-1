@@ -48,13 +48,14 @@ def run():
         label = ''.join([alphabet[i] for i in output.cpu().numpy()])
         id = "".join(item)
         print("ID:",id , "label:",label)
-        hw.append(id.strip()+'\t'+label.strip())
+        hw.append(id.strip().split('.')[0]+'\t'+label.strip())
         img_li.append(img)
         label_li.append(label)
     #####
         if label.strip() == id.split('_')[0].strip():
             correct += 1
     print('Acc:'+str(correct/len(img_list)))
+    hw.sort(key=lambda item:eval(item.split('\t')[0]),reverse=False)
     with open('22920212204054.txt','w') as f:
         for item in hw:
             f.write(item+'\n')

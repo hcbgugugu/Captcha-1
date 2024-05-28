@@ -18,7 +18,6 @@ model_path = './checkpoints/modeltest.pth'
 if not os.path.exists('./checkpoints'):
     os.mkdir('./checkpoints')
 
-
 def calculat_acc(output, target):
     output, target = output.view(-1, 62), target.view(-1, 62)
     output = nn.functional.softmax(output, dim=1)
